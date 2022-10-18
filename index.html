@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body onload="startTime()">
+    <h1>Home</h1>
+        <ul>
+            <li id="home"><a href="index.html">Home</a></li>
+            <li><a href="pliki.html">Pliki</a></li>
+            <li><a href="planlekcji.html">Plan lekcji</a></li>
+            <li><a href="kody.html">Kody</a></li>
+          </ul>  
+
+          <div id="clock"></div>
+
+          <script>
+            function startTime() {
+              const today = new Date();
+              let h = today.getHours();
+              let m = today.getMinutes();
+              let s = today.getSeconds();
+              m = checkTime(m);
+              s = checkTime(s);
+              document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+              setTimeout(startTime, 1000);
+            }
+            
+            function checkTime(i) {
+              if (i < 10) {i = "0" + i};
+              return i;
+            }
+            </script>
+          
+</body>
+</html>
